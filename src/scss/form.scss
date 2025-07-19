@@ -1,0 +1,181 @@
+.forms-containers {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.521);
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        min-height: 30%;
+        height: auto;
+        width: 40%;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: var(--fond-container);
+        display: flex;
+        flex-direction: column;
+
+        .entete {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'font-1';
+            color: var(--text-2);
+        }
+
+        .body {
+            width: 100%;
+            height: 100%;
+            padding-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+
+            .ifon-form {
+                display: flex;
+                flex-direction: column;
+                width: 48%;
+                height: 70px;
+                margin-bottom: 8px;
+
+                label {
+                    margin-bottom: 8px;
+                    font-family: 'font-2';
+                }
+
+
+                input {
+                    font-family: "font-1";
+                    letter-spacing: 1.02px;
+                    padding: 0 10px;
+                    height: 55%;
+                    width: 100%;
+                    border-radius: 10px;
+                    outline: none;
+                    border: 1px solid var(--text-2);
+                }
+
+                select {
+                    font-family: "font-1";
+                    letter-spacing: 1.02px;
+                    padding: 0 15px;
+                    height: 55%;
+                    width: 100%;
+                    border-radius: 10px;
+                    outline: none;
+                    border: 1px solid var(--text-2);
+                }
+            }
+        }
+
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            button {
+                padding: 7px 15px;
+                margin-left: 20px;
+                font-family: 'font-1';
+                background-color: #56c596;
+                color: var(--text-1);
+                border: none;
+                letter-spacing: 1.02px;
+                border-radius: 5px;
+            }
+
+            .cancel {
+                background-color: #e75d50;
+            }
+        }
+    }
+}
+
+.delete-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.521);
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+
+    .post {
+        min-height: 30%;
+        height: auto;
+        width: 35%;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: var(--fond-container);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border: 2px solid #e75d50;
+
+        .entete {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'font-1';
+            color: var(--text-2);
+
+            svg {
+                color: #e75d50;
+                margin-right: 12px;
+            }
+        }
+
+        .form {
+            width: 100%;
+            padding-top: 20px;
+            padding-left: 40px;
+            color: var(--text-2);
+
+            p {
+                display: flex;
+                align-items: center;
+                font-family: 'font-1';
+                font-size: 20px;
+
+                svg {
+                    margin-right: 20px;
+                }
+            }
+
+        }
+
+
+
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                padding: 7px 15px;
+                font-family: 'font-1';
+                background-color: #56c596;
+                color: var(--text-1);
+                border: none;
+                letter-spacing: 1.02px;
+                border-radius: 5px;
+            }
+
+            .cancel {
+                background-color: #e75d50;
+            }
+        }
+    }
+}

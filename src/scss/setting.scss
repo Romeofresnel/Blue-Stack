@@ -1,0 +1,68 @@
+:root {
+    --color-principal: #0a192f;
+    --color-second: #112240;
+    --color-button: #1c78c0;
+    --hover: #69a7e0;
+    --fond-container: #f5f7fa;
+    --text-1: #ffffff;
+    --text-2: #333a45;
+}
+
+@font-face {
+    font-family: "font-1";
+    src: url(/assets/Poppine/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-2";
+    src: url(/assets/Inter/static/Inter_18pt-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-3";
+    src: url(/assets/Open_Sans/static/OpenSans_Condensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-4";
+    src: url(/assets/Lato/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: "font-5";
+    src: url(/assets/roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-6";
+    src: url(/assets/Karla/static/Karla-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.layout-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 13% 87%;
+    background-color: var(--fond-container);
+
+    .container-left {
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-second);
+    }
+
+    .container-rigth {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 8% 92%;
+    }
+}

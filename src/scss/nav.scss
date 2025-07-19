@@ -1,0 +1,183 @@
+.container-link {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 15% 85%;
+
+    .container-link-top {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        align-items: center;
+        padding: 10px 10px;
+        font-family: "font-1";
+        color: #ffffff;
+
+        .container-logo {
+            width: 75px;
+            height: 77px;
+            border: none;
+            border-radius: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+            }
+        }
+    }
+
+    .container-link-bottom {
+        width: 100%;
+        padding: 20px 10px;
+        height: 100%;
+
+        .container-menu {
+            width: 100%;
+            height: 100%;
+
+            ul {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    text-decoration: none;
+                    list-style: none;
+                    margin-bottom: 10px;
+                    padding: 10px 15px;
+                    border-radius: 12px;
+                    color: #ffffff;
+                    transition: 300ms ease-in;
+
+                    li {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .icons {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        span {
+                            margin-left: 10px;
+                            font-family: "font-2";
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #fafafa88;
+                        color: rgba(66, 66, 66, 0.425);
+                    }
+                }
+            }
+        }
+    }
+
+    .active {
+        background-color: var(--fond-container);
+        color: var(--text-2);
+        box-shadow: 0 4px 6px #00000041;
+        transition: 250ms ease-in-out;
+
+        span {
+            color: var(--text-2);
+        }
+
+        .icons {
+            color: var(--text-2);
+        }
+    }
+}
+
+.container-navUser {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-principal);
+    padding: 5px 5px;
+
+    .responsive {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .container-entete {
+            width: 300px;
+            display: flex;
+            position: absolute;
+            align-items: center;
+            right: 10px;
+
+            .icon-2 {
+                position: relative;
+                left: -30px;
+                color: var(--text-1);
+                border-radius: 100%;
+            }
+
+            .icon-3 {
+                position: relative;
+                left: -10px;
+                color: var(--text-1);
+                border-radius: 100%;
+            }
+
+            .container-profil {
+                width: 250px;
+                height: 40px;
+                display: grid;
+                grid-template-columns: 16% 70% 10%;
+                border-radius: 50px;
+                align-items: center;
+                border: 1px solid var(--text-1);
+                ;
+                font-family: "font-2";
+                font-size: 14px;
+                color: var(--text-1);
+                text-align: left;
+
+                .icon-1 {
+                    margin-left: 5px;
+                    margin-top: -2px;
+                    border-radius: 100%;
+                    transition: 100ms ease-in;
+
+                    &:hover {
+                        background-color: var(--text-1);
+                        color: var(--text-2);
+                        cursor: pointer;
+                    }
+                }
+
+                span {
+                    width: 100%;
+                    white-space: nowrap; //empeche le retour a la ligne
+                    overflow: hidden; //cache le contenu qui depasse
+                    text-overflow: ellipsis; //ajoute des points de suspension
+                    -webkit-text-overflow: ellipsis; //support des navigateur
+                    display: block; //tjr le mettre pour que ca marche
+                }
+
+                .pic-profil {
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 5px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        border-radius: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
