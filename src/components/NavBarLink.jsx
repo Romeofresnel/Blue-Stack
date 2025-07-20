@@ -21,7 +21,7 @@ export default function NavBarLink() {
             <div className="container-link">
                 <div className="container-link-top">
                     <div className="container-logo">
-                        <img src="/px-6.jpg" alt="logo" />
+                        <img src="../img/px-6.jpg" alt="logo" />
                     </div>
                     <h3>Blue Stock</h3>
                 </div>
