@@ -47,7 +47,7 @@ export default function Vente() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        {!isEmpty(venteData) && venteData.length === 0 ? (
+                        {!isEmpty(venteData) ? (
                             <div className='btn'></div>
                         ) : (
                             <div className='btn'>
@@ -65,7 +65,7 @@ export default function Vente() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(venteData) && venteData.length === 0 ? (
+                        {!isEmpty(venteData) ? (
                             <div className='one-none'>
                                 <p>Aucune vente effectuer</p>
                                 <div className='btn'>

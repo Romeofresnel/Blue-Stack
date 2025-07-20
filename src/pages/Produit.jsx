@@ -62,7 +62,7 @@ export default function Produit() {
                         </nav >
                         <div className='body-container'>
                             <div className='nav-data'>
-                                {!isEmpty(produitData) && produitData.length === 0 ? (
+                                {!isEmpty(produitData) ? (
                                     <div className='btn'></div>
                                 ) : (
                                     <div className='btn'>
@@ -80,7 +80,7 @@ export default function Produit() {
                                 </div>
                             </div>
                             <div className='container-data'>
-                                {!isEmpty(produitData) && produitData.length === 0 ? (
+                                {!isEmpty(produitData) ? (
                                     <div className='one-none'>
                                         <p>Aucun produit enregistrer pour l'instant</p>
                                         <div className='btn'>

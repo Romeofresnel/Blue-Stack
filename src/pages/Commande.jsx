@@ -49,7 +49,7 @@ export default function Commande() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        {!isEmpty(commandeData) && commandeData.length === 0 ? (
+                        {!isEmpty(commandeData) ? (
                             <div className='btn'></div>
                         ) : (
                             <div className='btn'>
@@ -67,7 +67,7 @@ export default function Commande() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(commandeData) && commandeData.length === 0 ? (
+                        {!isEmpty(commandeData) ? (
                             <div className='one-none'>
                                 <p>Aucune commande enregistrée</p>
                                 <div className='btn'>

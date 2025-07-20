@@ -48,7 +48,7 @@ export default function Client() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        {!isEmpty(clientData) && clientData.length === 0 ? (
+                        {isEmpty(clientData) ? (
                             <div className='btn'></div>
                         ) : (
                             <div className='btn'>
@@ -66,7 +66,7 @@ export default function Client() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(clientData) && clientData.length === 0 ? (
+                        {!isEmpty(clientData) ? (
                             <div className='one-none'>
                                 <p>Aucun client enregistrer</p>
                                 <div className='btn'>

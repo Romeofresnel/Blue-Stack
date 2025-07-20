@@ -116,7 +116,7 @@ export default function Dashbord() {
                                 <span>Produit recents</span>
                             </p>
                             <div className='container-five'>
-                                {isEmpty(dataP) && dataP.length === 0 ? (
+                                {isEmpty(dataP) ? (
                                     <div>Aucun produit recemment ajouter</div>
                                 ) : (
                                     getDeuxActivitesRecentes.map((data, index) => (
@@ -137,7 +137,7 @@ export default function Dashbord() {
                                     <span>Vente effectuer recements</span>
                                 </p>
                                 <div className='container-five'>
-                                    {isEmpty(dataV) && dataV.length === 0 ? (
+                                    {isEmpty(dataV) ? (
                                         <div className=''>Aucune vente effectuer recement</div>
                                     ) : (
                                         getDeuxActivitesRecente.map((data, index) => (

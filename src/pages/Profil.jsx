@@ -17,7 +17,7 @@ export default function Profil() {
                 <div className='info'>
                     <div className='left'>
                         <div className='img'>
-                            <img src="/px-3.jpg" alt="profil" />
+                            <img src="../img/px-3.jpg" alt="profil" />
                         </div>
                     </div>
                     <div className='left2'>
