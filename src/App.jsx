@@ -4,7 +4,6 @@ import Dashbord from "./pages/Dashbord";
 import Produit from "./pages/Produit";
 import Vente from "./pages/Vente";
 import Commande from "./pages/Commande";
-import Bilan from "./pages/Bilan";
 import Client from "./pages/Client";
 import Fournisseur from "./pages/Fournisseur";
 import Profil from "./pages/Profil";

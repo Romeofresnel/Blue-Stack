@@ -1,15 +1,9 @@
 import React from 'react'
 import {
-    Bed,
-    CalendarDays,
     CircleDashed,
     LayoutDashboard,
-    MessagesSquare,
     PackageOpen,
-    Scale,
-    ScanHeart,
     ShoppingBag,
-    UserRound,
     UserRoundPen,
     Users,
     UsersRound,
