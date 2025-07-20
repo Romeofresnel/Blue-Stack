@@ -49,9 +49,13 @@ export default function Commande() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        <div className='btn'>
-                            <button onClick={() => setAff(true)}>+ Ajouter une nouvelle commande</button>
-                        </div>
+                        {!isEmpty(commandeData) && commandeData.length === 0 ? (
+                            <div className='btn'></div>
+                        ) : (
+                            <div className='btn'>
+                                <button onClick={() => setAff(true)}>+ Ajouter une nouvelle commande</button>
+                            </div>
+                        )}
                         <div className='nav'>
                             <li>Nom Produit</li>
                             <li>Prix_achat</li>
@@ -63,10 +67,14 @@ export default function Commande() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(commandeData) && commandeData.length === '0' ? (
-                            <div className=''>
-                                Aucune commande enregistrée
+                        {!isEmpty(commandeData) && commandeData.length === 0 ? (
+                            <div className='one-none'>
+                                <p>Aucune commande enregistrée</p>
+                                <div className='btn'>
+                                    <button onClick={() => setAff(true)}>+ Ajouter une nouvelle commande</button>
+                                </div>
                             </div>
+
                         ) : (
                             commandeData.map((commande) => (
                                 <div key={commande.id} className='card-prod'>

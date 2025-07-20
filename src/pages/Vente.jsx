@@ -47,9 +47,13 @@ export default function Vente() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        <div className='btn'>
-                            <button onClick={() => setAff(true)}>+ Nouvelle vente</button>
-                        </div>
+                        {!isEmpty(venteData) && venteData.length === 0 ? (
+                            <div className='btn'></div>
+                        ) : (
+                            <div className='btn'>
+                                <button onClick={() => setAff(true)}>+ Nouvelle vente</button>
+                            </div>
+                        )}
                         <div className='nav'>
                             <li>Nom Produit</li>
                             <li>Prix_vente</li>
@@ -61,8 +65,13 @@ export default function Vente() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(venteData) && venteData.length === '0' ? (
-                            <div className=''>Aucune vente effectuer</div>
+                        {!isEmpty(venteData) && venteData.length === 0 ? (
+                            <div className='one-none'>
+                                <p>Aucune vente effectuer</p>
+                                <div className='btn'>
+                                    <button onClick={() => setAff(true)}>+ votre premiere vente</button>
+                                </div>
+                            </div>
                         ) : (
                             venteData.map((vente) => (
                                 <div key={vente.id} className='card-prod'>

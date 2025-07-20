@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { CircleDashed, LayoutDashboard, ShoppingBag, Users, UsersRound } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { isEmpty } from '../IsEmpty'
 
 export default function Dashbord() {
     const [dataP, setDataP] = useState([])
@@ -47,6 +48,28 @@ export default function Dashbord() {
         fetchFournisseur()
         fetchVentes()
     }, [])
+    const getDeuxActivitesRecentes = useMemo(() => {
+        const projectTriees = dataP.sort(
+            (a, b) => b.updatedAt - a.updatedAt
+        );
+        const deuxActivitesRecentes = projectTriees.slice(0, 4);
+        return deuxActivitesRecentes;
+    }, [dataP]);
+    const getDeuxActivitesRecente = useMemo(() => {
+        const projectTriees = dataV.sort(
+            (a, b) => b.updatedAt - a.updatedAt
+        );
+        const deuxActivitesRecentes = projectTriees.slice(0, 4);
+        return deuxActivitesRecentes;
+    }, [dataV]);
+    function formatDate(dateString) {
+        const date = new Date(dateString).toLocaleDateString("fr-FR", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+        return date;
+    }
     return (
         <>
             <div className='dashbord-container'>
@@ -93,36 +116,18 @@ export default function Dashbord() {
                                 <span>Produit recents</span>
                             </p>
                             <div className='container-five'>
-                                <div className='card-five'>
-                                    <CircleDashed />
-                                    <h3>RIZ SUZA</h3>
-                                    <h3>15000.00 f</h3>
-                                    <h3>500</h3>
-                                </div>
-                                <div className='card-five'>
-                                    <CircleDashed />
-                                    <h3>RIZ casser</h3>
-                                    <h3>11000.00 f</h3>
-                                    <h3>100</h3>
-                                </div>
-                                <div className='card-five'>
-                                    <CircleDashed />
-                                    <h3>fruitas</h3>
-                                    <h3>1500.00 f</h3>
-                                    <h3>400</h3>
-                                </div>
-                                <div className='card-five'>
-                                    <CircleDashed />
-                                    <h3>BIC 100</h3>
-                                    <h3>100.00 f</h3>
-                                    <h3>1500</h3>
-                                </div>
-                                <div className='card-five'>
-                                    <CircleDashed />
-                                    <h3>chipres</h3>
-                                    <h3>15000.00 f</h3>
-                                    <h3>500</h3>
-                                </div>
+                                {isEmpty(dataP) && dataP.length === 0 ? (
+                                    <div>Aucun produit recemment ajouter</div>
+                                ) : (
+                                    getDeuxActivitesRecentes.map((data, index) => (
+                                        <div key={index} className='card-five'>
+                                            <CircleDashed />
+                                            <h3>{data.nom}</h3>
+                                            <h3>{data.prix_vente}f</h3>
+                                            <h3>{data.stock}</h3>
+                                        </div>
+                                    ))
+                                )}
                             </div>
                         </div>
                         <div className='rigth'>
@@ -132,33 +137,21 @@ export default function Dashbord() {
                                     <span>Vente effectuer recements</span>
                                 </p>
                                 <div className='container-five'>
-                                    <div className='card-five'>
-                                        <ShoppingBag />
-                                        <span>19/06/2025</span>
-                                        <span>25000.00 f</span>
-                                        <span>Riz suza</span>
-                                        <span>02 Qts</span>
-                                        <span>George ben</span>
-                                        <span>paiement differer</span>
-                                    </div>
-                                    <div className='card-five'>
-                                        <ShoppingBag />
-                                        <span>19/06/2025</span>
-                                        <span>25000.00 f</span>
-                                        <span>Riz suza</span>
-                                        <span>02 Qts</span>
-                                        <span>George ben</span>
-                                        <span>paiement differer</span>
-                                    </div>
-                                    <div className='card-five'>
-                                        <ShoppingBag />
-                                        <span>19/06/2025</span>
-                                        <span>25000.00 f</span>
-                                        <span>Riz suza</span>
-                                        <span>02 Qts</span>
-                                        <span>George ben</span>
-                                        <span>paiement differer</span>
-                                    </div>
+                                    {isEmpty(dataV) && dataV.length === 0 ? (
+                                        <div className=''>Aucune vente effectuer recement</div>
+                                    ) : (
+                                        getDeuxActivitesRecente.map((data, index) => (
+                                            <div key={index} className='card-five'>
+                                                <ShoppingBag />
+                                                <span>{formatDate(data.updatedAt)}</span>
+                                                <span>{data.montant_total}f</span>
+                                                <span>{data.produit_nom}</span>
+                                                <span>{data.quantite} Qts</span>
+                                                <span>{data.client_nom}</span>
+                                                <span>{data.mode_paiement}</span>
+                                            </div>
+                                        ))
+                                    )}
                                 </div>
                             </div>
                             <div className='bottom'>

@@ -48,10 +48,13 @@ export default function Fournisseur() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        <div className='btn'>
-                            <button onClick={() => setAff(true)}>+ Ajouter un nouveau fournisseur</button>
-
-                        </div>
+                        {!isEmpty(fourData) && fourData.length === 0 ? (
+                            <div className='btn'></div>
+                        ) : (
+                            <div className='btn'>
+                                <button onClick={() => setAff(true)}>+ Ajouter un nouveau fournisseur</button>
+                            </div>
+                        )}
                         <div className='nav'>
                             <li>Nom fournisseur</li>
                             <li>Email</li>
@@ -63,9 +66,12 @@ export default function Fournisseur() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(fourData) && fourData.length === '0' ? (
-                            <div className=''>
-                                Aucun fournisseur enregistrer
+                        {!isEmpty(fourData) && fourData.length === 0 ? (
+                            <div className='one-none'>
+                                <p>Aucun fournisseur enregistrer</p>
+                                <div className='btn'>
+                                    <button onClick={() => setAff(true)}>+ Ajouter votre premier fournisseur</button>
+                                </div>
                             </div>
                         ) : (
                             fourData.map((fournisseur) => (

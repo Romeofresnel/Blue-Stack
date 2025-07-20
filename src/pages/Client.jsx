@@ -6,7 +6,7 @@ import axios from 'axios'
 import { isEmpty } from '../IsEmpty'
 import FormUpdateClient from '../forms/FormUpdateClient'
 import BoxDeleteCl from '../components/BoxDeleteCl'
-import { div } from 'three/examples/jsm/nodes/Nodes.js'
+
 
 export default function Client() {
     const [aff, setAff] = useState(false)
@@ -48,9 +48,13 @@ export default function Client() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        <div className='btn'>
-                            <button onClick={() => setAff(true)}>+ Ajouter un client</button>
-                        </div>
+                        {!isEmpty(clientData) && clientData.length === 0 ? (
+                            <div className='btn'></div>
+                        ) : (
+                            <div className='btn'>
+                                <button onClick={() => setAff(true)}>+ Ajouter un client</button>
+                            </div>
+                        )}
                         <div className='nav'>
                             <li>Nom client</li>
                             <li>Contact</li>
@@ -62,8 +66,13 @@ export default function Client() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(clientData) && clientData.length === '0' ? (
-                            <div className=''>Aucun client enregistrer</div>
+                        {!isEmpty(clientData) && clientData.length === 0 ? (
+                            <div className='one-none'>
+                                <p>Aucun client enregistrer</p>
+                                <div className='btn'>
+                                    <button onClick={() => setAff(true)}>+ Ajouter votre premier client</button>
+                                </div>
+                            </div>
                         ) : (
                             clientData.map((client) => (
                                 <div key={client.id} className='card-prod'>

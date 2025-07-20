@@ -59,16 +59,6 @@ export default function NavBarLink() {
                                 </li>
                             </NavLink>
                             <NavLink
-                                to="/bilan"
-                                className={(nav) => (nav.isActive ? "active" : "")}
-                                id="use"
-                            >
-                                <li>
-                                    <Scale className="icons" />
-                                    <span>Bilan Financier</span>
-                                </li>
-                            </NavLink>
-                            <NavLink
                                 to="/commande"
                                 className={(nav) => (nav.isActive ? "active" : "")}
                                 id="use"

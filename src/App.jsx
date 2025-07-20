@@ -17,13 +17,13 @@ function App() {
     <>
       <Routes>
         <Route index element={<Login />} />
+        <Route path="/authentification" element={<Login />} />
         <Route element={<Layout />}>
           <Route index element={<Dashbord />} />
           <Route path="/dashbord" element={<Dashbord />} />
           <Route path="/produit" element={<Produit />} />
           <Route path="/vente" element={<Vente />} />
           <Route path="/commande" element={<Commande />} />
-          <Route path="/bilan" element={<Bilan />} />
           <Route path="/client" element={<Client />} />
           <Route path="fournisseur" element={<Fournisseur />} />
           <Route path="profil" element={<Profil />} />

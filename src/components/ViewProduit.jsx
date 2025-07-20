@@ -2,9 +2,16 @@ import axios from 'axios'
 import { ChevronLeft, CircleDashed, Eye, PackageOpen, ShoppingBag } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { isEmpty } from '../IsEmpty'
+import Portal from './Portal'
+import FormUpdateProduit from '../forms/FormUpdateProduit'
+import BoxDelete from './BoxDelete'
+import { useNavigate } from 'react-router'
 
 export default function ViewProduit({ aff, produit }) {
     const [produitData, setProduitData] = useState([])
+    const navigate = useNavigate();
+    const [aff1, setAff1] = useState(false)
+    const [aff2, setAff2] = useState(false)
     const [produitData1, setProduitData1] = useState([])
     const fetchProduits = async () => {
         try {
@@ -23,7 +30,9 @@ export default function ViewProduit({ aff, produit }) {
         }
     }
     console.log(produitData);
-
+    const refreshProduits = () => {
+        fetchProduits()
+    }
     useEffect(() => {
         fetchProduits()
         fetchProduit()
@@ -47,8 +56,11 @@ export default function ViewProduit({ aff, produit }) {
                             <h4>{produit.stock} produit</h4>
                         </div>
                         <div className='slide-button'>
-                            <button>Modifier le produit</button>
-                            <button>supprimer le produit</button>
+                            <button onClick={() => setAff1(true)}>Modifier le produit</button>
+                            <button onClick={() => {
+                                setAff2(true)
+                                aff(false)
+                            }}>supprimer le produit</button>
                         </div>
                     </div>
                     <div className='view-rigth'>
@@ -58,17 +70,23 @@ export default function ViewProduit({ aff, produit }) {
                                 <span>Ventes effectuer pour ce produit({produitData.length})</span>
                             </p>
                             <div className='container'>
-                                {!isEmpty(produitData) && produitData.map((produits) => (
-
-                                    <div className='cards'>
-                                        <li>{produit.nom}</li>
-                                        <li>{produits.quantite}</li>
-                                        <li>{produits.montant_total} f</li>
-                                        <li>{produits.client_nom}</li>
-                                        <li>{produits.mode_paiement}</li>
-                                        <Eye />
+                                {!isEmpty(produitData) && produitData.length === 0 ? (
+                                    <div className='one-none'>
+                                        <p>Aucune vente effectuer pour ce produit</p>
+                                        <button onClick={() => navigate('/vente')}>Nouvelle vente ?</button>
                                     </div>
-                                ))}
+                                ) : (
+                                    produitData.map((produits) => (
+                                        <div className='cards'>
+                                            <li>{produit.nom}</li>
+                                            <li>{produits.quantite}</li>
+                                            <li>{produits.montant_total} f</li>
+                                            <li>{produits.client_nom}</li>
+                                            <li>{produits.mode_paiement}</li>
+                                            <Eye />
+                                        </div>
+                                    ))
+                                )}
                             </div>
                         </div>
                         <div className='section-bottom'>
@@ -77,22 +95,46 @@ export default function ViewProduit({ aff, produit }) {
                                 <span>commande effectuer pour ce produit({produitData1.length})</span>
                             </p>
                             <div className='container'>
-                                {!isEmpty(produitData1) && produitData1.map((produits) => (
-
-                                    <div className='cards'>
-                                        <li>{produit.nom}</li>
-                                        <li>{produits.quantite}</li>
-                                        <li>{produits.montant_total} f</li>
-                                        <li>{produits.fournisseur_nom}</li>
-                                        <li>{produits.mode_paiement}</li>
-                                        <Eye />
+                                {!isEmpty(produitData1) && produitData1.length === 0 ? (
+                                    <div className='one-none'>
+                                        <p>Aucune commande effectuer pour ce produit</p>
+                                        <button onClick={() => navigate('/commande')}>Nouvelle commande ?</button>
                                     </div>
-                                ))}
+                                ) : (
+                                    produitData1.map((produits) => (
+                                        <div className='cards'>
+                                            <li>{produit.nom}</li>
+                                            <li>{produits.quantite}</li>
+                                            <li>{produits.montant_total} f</li>
+                                            <li>{produits.fournisseur_nom}</li>
+                                            <li>{produits.mode_paiement}</li>
+                                            <Eye />
+                                        </div>
+                                    ))
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {aff1 &&
+                <Portal>
+                    <FormUpdateProduit
+                        aff={setAff1}
+                        produits={produit}
+                        onSuccess={refreshProduits}
+                    />
+                </Portal>
+            }
+            {aff2 &&
+                <Portal>
+                    <BoxDelete
+                        aff={setAff2}
+                        produits={produit}
+                        onSuccess={refreshProduits}
+                    />
+                </Portal>
+            }
         </>
     )
 }

@@ -1,7 +1,10 @@
 import { Mail, Phone, UserRoundPen } from 'lucide-react'
 import React from 'react'
+import { useNavigate } from 'react-router';
 
 export default function Profil() {
+    const navigate = useNavigate();
+
     return (
         <div className='profil-container'>
             <div className='top'>
@@ -18,15 +21,15 @@ export default function Profil() {
                         </div>
                     </div>
                     <div className='left2'>
-                        <h1>jean claude bernard</h1>
+                        <h1>N'nang Moumbe Romeo Fresnel</h1>
                         <section>
                             <div className='inter'>
                                 <Mail />
-                                <h3>claude@gmail.com</h3>
+                                <h3>romeofresnel@gmail.com</h3>
                             </div>
                             <div className='inter'>
                                 <Phone />
-                                <span>698 52 14 75 21</span>
+                                <span>692 38 59 60</span>
                             </div>
                         </section>
                     </div>
@@ -39,7 +42,7 @@ export default function Profil() {
                         <UserRoundPen />
                         <span>Modifier le profil</span>
                     </button>
-                    <button>
+                    <button onClick={() => navigate('/authentification')}>
                         <UserRoundPen />
                         <span>Deconnexion</span>
                     </button>

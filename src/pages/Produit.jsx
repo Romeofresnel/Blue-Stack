@@ -62,9 +62,13 @@ export default function Produit() {
                         </nav >
                         <div className='body-container'>
                             <div className='nav-data'>
-                                <div className='btn'>
-                                    <button onClick={() => setAff(true)}>+ Ajouter un produit</button>
-                                </div>
+                                {!isEmpty(produitData) && produitData.length === 0 ? (
+                                    <div className='btn'></div>
+                                ) : (
+                                    <div className='btn'>
+                                        <button onClick={() => setAff(true)}>+ Ajouter un produit</button>
+                                    </div>
+                                )}
                                 <div className='nav'>
                                     <li>Nom Produit</li>
                                     <li>Prix_achat</li>
@@ -76,32 +80,41 @@ export default function Produit() {
                                 </div>
                             </div>
                             <div className='container-data'>
-                                {!isEmpty(produitData) && produitData.map((produit) => (
-                                    <div key={produit.id} className='card-prod'>
-                                        <li>{produit.nom}</li>
-                                        <li>{produit.prix_achat} f</li>
-                                        <li>{produit.prix_vente} f</li>
-                                        <li>{produit.stock}</li>
-                                        <li>Albien choune</li>
-                                        <li>{formatDate(produit.created_at)}</li>
-                                        <li>
-                                            <section>
-                                                <Eye onClick={() => {
-                                                    setProduit(produit)
-                                                    setAff3(true)
-                                                }} />
-                                                <SquarePen onClick={() => {
-                                                    setProduit(produit)
-                                                    setAff1(true)
-                                                }} />
-                                                <Trash onClick={() => {
-                                                    setProduit(produit)
-                                                    setAff2(true)
-                                                }} />
-                                            </section>
-                                        </li>
+                                {!isEmpty(produitData) && produitData.length === 0 ? (
+                                    <div className='one-none'>
+                                        <p>Aucun produit enregistrer pour l'instant</p>
+                                        <div className='btn'>
+                                            <button onClick={() => setAff(true)}>+ Ajouter le premier produit</button>
+                                        </div>
                                     </div>
-                                ))}
+                                ) : (
+                                    produitData.map((produit) => (
+                                        <div key={produit.id} className='card-prod'>
+                                            <li>{produit.nom}</li>
+                                            <li>{produit.prix_achat} f</li>
+                                            <li>{produit.prix_vente} f</li>
+                                            <li>{produit.stock}</li>
+                                            <li>Albien choune</li>
+                                            <li>{formatDate(produit.created_at)}</li>
+                                            <li>
+                                                <section>
+                                                    <Eye onClick={() => {
+                                                        setProduit(produit)
+                                                        setAff3(true)
+                                                    }} />
+                                                    <SquarePen onClick={() => {
+                                                        setProduit(produit)
+                                                        setAff1(true)
+                                                    }} />
+                                                    <Trash onClick={() => {
+                                                        setProduit(produit)
+                                                        setAff2(true)
+                                                    }} />
+                                                </section>
+                                            </li>
+                                        </div>
+                                    ))
+                                )}
                             </div>
                             <div className='circle'></div>
                             <div className='circle1'></div>
