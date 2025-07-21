@@ -1,7 +1,7 @@
 import { Mail, Phone, UserRoundPen } from 'lucide-react'
 import React from 'react'
 import { useNavigate } from 'react-router';
-
+import logos from '../img/px-3.jpg'
 export default function Profil() {
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export default function Profil() {
                 <div className='info'>
                     <div className='left'>
                         <div className='img'>
-                            <img src="../img/px-3.jpg" alt="profil" />
+                            <img src={logos} alt="profil" />
                         </div>
                     </div>
                     <div className='left2'>

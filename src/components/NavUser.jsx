@@ -1,6 +1,6 @@
 import { Bell, ChevronDown, EllipsisVertical, Search } from 'lucide-react'
 import React from 'react'
-
+import logo from '../img/px-3.jpg'
 export default function NavUser() {
     return (
         <>
@@ -15,9 +15,9 @@ export default function NavUser() {
                         <Bell className="icon-3" size={20} />
                         <div className="container-profil">
                             <div className="pic-profil">
-                                <img src="/px-3.jpg" alt="profil" />
+                                <img src={logo} alt="profil" />
                             </div>
-                            <span>jean claude bernard arol bertauld cachemir</span>
+                            <span title='romeo fresnel nnang moumbe'>romeo fresnel nnang moumbe</span>
                             <ChevronDown className="icon-1" size={25} />
                         </div>
                     </div>

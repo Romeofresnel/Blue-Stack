@@ -9,13 +9,14 @@ import {
     UsersRound,
 } from "lucide-react";
 import { NavLink } from 'react-router-dom';
+import log from '../img/px-6.jpg'
 export default function NavBarLink() {
     return (
         <>
             <div className="container-link">
                 <div className="container-link-top">
                     <div className="container-logo">
-                        <img src="/px-6.jpg" alt="logo" />
+                        <img src={log} alt="logo" />
                     </div>
                     <h3>Blue Stock</h3>
                 </div>
