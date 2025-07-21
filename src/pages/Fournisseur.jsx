@@ -48,7 +48,7 @@ export default function Fournisseur() {
                 </nav>
                 <div className='body-container'>
                     <div className='nav-data'>
-                        {!isEmpty(fourData) ? (
+                        {isEmpty(fourData) ? (
                             <div className='btn'></div>
                         ) : (
                             <div className='btn'>
@@ -66,7 +66,7 @@ export default function Fournisseur() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(fourData) ? (
+                        {isEmpty(fourData) ? (
                             <div className='one-none'>
                                 <p>Aucun fournisseur enregistrer</p>
                                 <div className='btn'>

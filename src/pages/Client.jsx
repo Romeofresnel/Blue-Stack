@@ -66,7 +66,7 @@ export default function Client() {
                         </div>
                     </div>
                     <div className='container-data'>
-                        {!isEmpty(clientData) ? (
+                        {isEmpty(clientData) ? (
                             <div className='one-none'>
                                 <p>Aucun client enregistrer</p>
                                 <div className='btn'>
